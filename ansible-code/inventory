@@ -1,8 +1,0 @@
-[stag]
-52.28.122.46
-
-[prod]
-3.121.92.111
-
-[all:vars]
-ansible_python_interpreter=/usr/bin/python3
