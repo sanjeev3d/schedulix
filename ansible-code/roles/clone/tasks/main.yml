@@ -1,0 +1,18 @@
+---
+
+- name: Copy private key
+  copy:
+      src: "{{ keyfile }}"
+      dest: "~/.ssh/keyfile"
+      mode: 0400
+
+- name: Git Clone
+  git:
+      repo: "git@bitbucket.org:corteq/schedulix.git"
+      dest: "/var/www/schedulix.net"
+      update : yes
+      clone : yes
+      version: "{{ branch }}"
+      accept_hostkey: yes
+      key_file: "~/.ssh/keyfile"
+      force: yes

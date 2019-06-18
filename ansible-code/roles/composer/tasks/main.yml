@@ -1,0 +1,16 @@
+---
+- name: Install composer
+  apt: name=composer state=present
+
+- name: Run composer install to project directory
+  composer:
+      command: install
+      working_dir: /var/www/schedulix.net
+
+- name: Run artisan migrate
+  command: php /var/www/schedulix.net/artisan migrate --force -v
+
+- name: Run artisan db:seed
+  command: php /var/www/schedulix.net/artisan db:seed
+  
+
